@@ -274,6 +274,23 @@ a:hover{color:var(--navy);}
 .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
 @media (max-width:560px){.form-grid-2{grid-template-columns:1fr;}}
 
+/* Formspree submission status + spam honeypot. */
+[hidden]{display:none !important;}
+.form-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.form-status{border-radius:var(--radius);padding:22px 20px;font-size:.95rem;line-height:1.55;}
+.form-status:focus{outline:none;}
+.form-status strong{display:block;font-size:1.05rem;margin-bottom:.4rem;}
+.form-status p{margin:0;}
+.form-status a{color:var(--navy);font-weight:700;}
+.form-status-success{background:var(--gold-pale);border:1.5px solid #e8d5ac;color:#5c4a1f;}
+.form-status-success strong{color:var(--navy);}
+.form-status-error{background:var(--crisis-pale);border:1.5px solid #f0c9c6;color:#7a2b25;}
+.form-status-error strong{color:var(--crisis);}
+/* iOS Safari zooms the viewport when a focused control is under 16px. */
+@media (max-width:768px){
+  .form-group input,.form-group select,.form-group textarea{font-size:16px;}
+}
+
 /* --- CTA strip ---------------------------------------------------------- */
 .cta-strip{
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 55%,var(--navy-light) 100%);

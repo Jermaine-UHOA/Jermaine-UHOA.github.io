@@ -122,13 +122,19 @@
         <div class="card card-gold" style="padding:40px 36px;">
           <h3 style="color:var(--navy);margin-bottom:.5rem;">Send Us a Message</h3>
           <p style="color:var(--text-light);font-size:.9rem;margin-bottom:24px;">Fill out the form below and we'll get back to you within 1–2 business days.</p>
-          <form id="contact-form" action="#" onsubmit="handleContactForm(event)">
+          <form id="contact-form" action="https://formspree.io/f/mljrqllq" method="POST"
+                data-formspree
+                data-success-title="Message sent."
+                data-success-body="Thanks for reaching out. We&rsquo;ll get back to you within 1&ndash;2 business days.">
+            <input type="hidden" name="_subject" value="Website Contact — unsungheroesofamerica.org">
+            <input type="hidden" name="Form" value="Contact Form">
+            <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid-2">
-              <div class="form-group"><label for="c-first">First Name *</label><input type="text" id="c-first" name="first_name" required></div>
-              <div class="form-group"><label for="c-last">Last Name *</label><input type="text" id="c-last" name="last_name" required></div>
+              <div class="form-group"><label for="c-first">First Name *</label><input type="text" id="c-first" name="first_name" autocomplete="given-name" required></div>
+              <div class="form-group"><label for="c-last">Last Name *</label><input type="text" id="c-last" name="last_name" autocomplete="family-name" required></div>
             </div>
-            <div class="form-group"><label for="c-email">Email Address *</label><input type="email" id="c-email" name="email" required></div>
-            <div class="form-group"><label for="c-phone">Phone Number</label><input type="tel" id="c-phone" name="phone" placeholder="(xxx) xxx-xxxx"></div>
+            <div class="form-group"><label for="c-email">Email Address *</label><input type="email" id="c-email" name="email" autocomplete="email" inputmode="email" required></div>
+            <div class="form-group"><label for="c-phone">Phone Number</label><input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(xxx) xxx-xxxx"></div>
             <div class="form-group">
               <label for="c-reason">Reason for Contact *</label>
               <select id="c-reason" name="reason" required>
@@ -146,8 +152,8 @@
             <div class="form-group"><label for="c-subject">Subject</label><input type="text" id="c-subject" name="subject" placeholder="Brief subject line…"></div>
             <div class="form-group"><label for="c-msg">Message *</label><textarea id="c-msg" name="message" rows="5" required placeholder="Tell us what's on your mind…"></textarea></div>
             <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
-            <p style="font-size:.78rem;color:var(--text-light);text-align:center;margin-top:10px;">Submitting opens your email client with your message pre-filled. Simply press Send to complete.</p>
           </form>
+          <div id="contact-form-status" class="form-status" role="status" aria-live="polite" hidden></div>
         </div>
       </div>
     </div>
@@ -227,16 +233,5 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
-<script>
-function handleContactForm(e) {
-  e.preventDefault();
-  const f = e.target;
-  const subject = f.subject.value || f.reason.value || 'Contact Form Message';
-  const body = encodeURIComponent(
-    `Name: ${f.first_name.value} ${f.last_name.value}\nPhone: ${f.phone.value || 'Not provided'}\nEmail: ${f.email.value}\nReason: ${f.reason.value}\n\nMessage:\n${f.message.value}`
-  );
-  window.location.href = `mailto:unsungheroesofamericainc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-}
-</script>
 </body>
 </html>

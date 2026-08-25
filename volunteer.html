@@ -157,13 +157,19 @@
         <p>Tell us a bit about yourself and how you'd like to help. We'll follow up within a few days to get you connected.</p>
       </div>
       <div class="card card-gold" style="padding:40px 36px;">
-        <form id="volunteer-form" action="#" onsubmit="handleVolunteerForm(event)">
+        <form id="volunteer-form" action="https://formspree.io/f/mljrqllq" method="POST"
+              data-formspree
+              data-success-title="Application received."
+              data-success-body="Thank you for stepping up for our veterans. We&rsquo;ll follow up within a few days to get you connected with the right role.">
+          <input type="hidden" name="_subject" value="Volunteer Application — unsungheroesofamerica.org">
+          <input type="hidden" name="Form" value="Volunteer Application">
+          <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-grid-2">
-            <div class="form-group"><label for="v-first">First Name *</label><input type="text" id="v-first" name="first_name" required></div>
-            <div class="form-group"><label for="v-last">Last Name *</label><input type="text" id="v-last" name="last_name" required></div>
+            <div class="form-group"><label for="v-first">First Name *</label><input type="text" id="v-first" name="first_name" autocomplete="given-name" required></div>
+            <div class="form-group"><label for="v-last">Last Name *</label><input type="text" id="v-last" name="last_name" autocomplete="family-name" required></div>
           </div>
-          <div class="form-group"><label for="v-email">Email Address *</label><input type="email" id="v-email" name="email" required></div>
-          <div class="form-group"><label for="v-phone">Phone Number</label><input type="tel" id="v-phone" name="phone" placeholder="(xxx) xxx-xxxx"></div>
+          <div class="form-group"><label for="v-email">Email Address *</label><input type="email" id="v-email" name="email" autocomplete="email" inputmode="email" required></div>
+          <div class="form-group"><label for="v-phone">Phone Number</label><input type="tel" id="v-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(xxx) xxx-xxxx"></div>
           <div class="form-group">
             <label for="v-role">Areas of Interest *</label>
             <select id="v-role" name="role" required>
@@ -201,8 +207,8 @@
           </div>
           <div class="form-group"><label for="v-msg">Tell Us About Yourself (optional)</label><textarea id="v-msg" name="message" rows="4" placeholder="Share any relevant skills, experience, or why you want to volunteer with UHOA…"></textarea></div>
           <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;">Submit Volunteer Application</button>
-          <p style="font-size:.8rem;color:var(--text-light);text-align:center;margin-top:12px;">Submitting this form will open your email client with your application pre-filled. Send the email to complete your application.</p>
         </form>
+        <div id="volunteer-form-status" class="form-status" role="status" aria-live="polite" hidden></div>
       </div>
     </div>
   </div>
@@ -252,15 +258,5 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-function handleVolunteerForm(e) {
-  e.preventDefault();
-  const f = e.target;
-  const body = encodeURIComponent(
-    `VOLUNTEER APPLICATION\n\nName: ${f.first_name.value} ${f.last_name.value}\nPhone: ${f.phone.value || 'Not provided'}\nEmail: ${f.email.value}\n\nArea of Interest: ${f.role.value}\nAvailability: ${f.availability.value || 'Not specified'}\nVeteran/Military: ${f.veteran_status.value}\n\nAbout me:\n${f.message.value || 'Not provided'}`
-  );
-  window.location.href = `mailto:unsungheroesofamericainc@gmail.com?subject=${encodeURIComponent('Volunteer Application – ' + f.first_name.value + ' ' + f.last_name.value)}&body=${body}`;
-}
-</script>
 </body>
 </html>

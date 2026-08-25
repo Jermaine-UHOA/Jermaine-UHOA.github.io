@@ -51,52 +51,63 @@
   }
 
   /* --- Forms ------------------------------------------------------------ */
-  // Each form composes a mailto: message so submissions reach UHOA without a
-  // server. The label text of each field becomes the line item in the body.
-  function labelFor(field, form) {
-    if (field.id) {
-      var label = form.querySelector('label[for="' + field.id + '"]');
-      if (label) return label.textContent.replace(/\s*\*\s*$/, '').trim();
-    }
-    return (field.name || 'Field').replace(/_/g, ' ');
+  // Each form carries a real action/method in the markup, so submissions still
+  // reach Formspree if this script fails to load. When it does load we post via
+  // fetch and swap in an inline confirmation instead of navigating away.
+  function showStatus(el, kind, title, bodyHtml) {
+    el.className = 'form-status form-status-' + kind;
+    el.innerHTML = '<strong>' + title + '</strong><p>' + bodyHtml + '</p>';
+    el.hidden = false;
   }
 
-  function buildBody(form) {
-    var lines = [];
-    Array.prototype.forEach.call(form.elements, function (field) {
-      if (!field.name || field.type === 'submit' || field.type === 'button') return;
-      if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
-      var value = (field.value || '').trim();
-      if (!value) return;
-      lines.push(labelFor(field, form) + ': ' + value);
+  function initForms() {
+    // Without fetch/FormData we leave the native POST alone rather than break it.
+    if (!window.fetch || !window.FormData) return;
+
+    var forms = document.querySelectorAll('form[data-formspree]');
+    Array.prototype.forEach.call(forms, function (form) {
+      var status = document.getElementById(form.id + '-status');
+      if (!status) return;
+
+      var button = form.querySelector('button[type="submit"]');
+      var buttonLabel = button ? button.textContent : '';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+
+        status.hidden = true;
+        if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        }).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          form.hidden = true;
+          showStatus(status, 'success',
+            form.getAttribute('data-success-title'),
+            form.getAttribute('data-success-body'));
+          status.setAttribute('tabindex', '-1');
+          status.focus();
+        })['catch'](function () {
+          if (button) { button.disabled = false; button.textContent = buttonLabel; }
+          showStatus(status, 'error', 'That didn&rsquo;t go through.',
+            'Something went wrong sending your message. Please try again, or email us ' +
+            'directly at <a href="mailto:' + ORG_EMAIL + '">' + ORG_EMAIL + '</a> and ' +
+            'we&rsquo;ll pick it up from there.');
+        });
+      });
     });
-    return lines.join('\n');
   }
-
-  function submitViaEmail(event, subjectPrefix) {
-    event.preventDefault();
-    var form = event.target;
-    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
-
-    var subjectField = form.querySelector('[name="subject"]');
-    var typed = subjectField ? subjectField.value.trim() : '';
-    var subject = typed ? subjectPrefix + ': ' + typed : subjectPrefix;
-
-    window.location.href = 'mailto:' + ORG_EMAIL +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(buildBody(form));
-  }
-
-  // Called inline from the page markup (onsubmit="...").
-  window.handleContactForm = function (e) { submitViaEmail(e, 'Website Contact'); };
-  window.handleHelpForm = function (e) { submitViaEmail(e, 'Veteran Assistance Request'); };
-  window.handleVolunteerForm = function (e) { submitViaEmail(e, 'Volunteer Application'); };
 
   /* --- Init ------------------------------------------------------------- */
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { initNav(); initAccordion(); });
+    document.addEventListener('DOMContentLoaded', function () { initNav(); initAccordion(); initForms(); });
   } else {
     initNav();
     initAccordion();
+    initForms();
   }
 })();

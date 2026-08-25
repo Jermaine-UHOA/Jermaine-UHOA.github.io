@@ -101,13 +101,19 @@
         <div class="card card-gold" style="padding:36px 32px;">
           <h3 style="color:var(--navy);margin-bottom:.5rem;">Send Us a Message</h3>
           <p style="color:var(--text-light);font-size:.9rem;margin-bottom:24px;">Tell us what's going on and we'll follow up with you directly.</p>
-          <form id="help-form" action="#" onsubmit="handleHelpForm(event)">
+          <form id="help-form" action="https://formspree.io/f/mljrqllq" method="POST"
+                data-formspree
+                data-success-title="Your request is in."
+                data-success-body="Someone from UHOA will follow up with you directly, usually within 1&ndash;2 business days. If you need help right now, call the National Call Center for Homeless Veterans at <a href='tel:18774243838'>1-877-4AID-VET</a> &mdash; it&rsquo;s free, confidential, and staffed 24/7.">
+            <input type="hidden" name="_subject" value="Veteran Assistance Request — unsungheroesofamerica.org">
+            <input type="hidden" name="Form" value="Get Help — Veteran Assistance Request">
+            <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid-2">
-              <div class="form-group"><label for="h-first">First Name *</label><input type="text" id="h-first" name="first_name" required></div>
-              <div class="form-group"><label for="h-last">Last Name *</label><input type="text" id="h-last" name="last_name" required></div>
+              <div class="form-group"><label for="h-first">First Name *</label><input type="text" id="h-first" name="first_name" autocomplete="given-name" required></div>
+              <div class="form-group"><label for="h-last">Last Name *</label><input type="text" id="h-last" name="last_name" autocomplete="family-name" required></div>
             </div>
-            <div class="form-group"><label for="h-phone">Phone Number</label><input type="tel" id="h-phone" name="phone" placeholder="(xxx) xxx-xxxx"></div>
-            <div class="form-group"><label for="h-email">Email Address *</label><input type="email" id="h-email" name="email" required></div>
+            <div class="form-group"><label for="h-phone">Phone Number</label><input type="tel" id="h-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(xxx) xxx-xxxx"></div>
+            <div class="form-group"><label for="h-email">Email Address *</label><input type="email" id="h-email" name="email" autocomplete="email" inputmode="email" required></div>
             <div class="form-group">
               <label for="h-need">What Do You Need Help With? *</label>
               <select id="h-need" name="need" required>
@@ -125,6 +131,7 @@
             <div class="form-group"><label for="h-msg">Tell Us More (optional)</label><textarea id="h-msg" name="message" rows="4" placeholder="Briefly describe your situation or what you need…"></textarea></div>
             <button type="submit" class="btn btn-primary" style="width:100%;">Send My Request</button>
           </form>
+          <div id="help-form-status" class="form-status" role="status" aria-live="polite" hidden></div>
         </div>
       </div>
     </div>
@@ -152,7 +159,7 @@
       </div>
       <div class="resource-card">
         <h3>🏠 National Call Center for Homeless Veterans</h3>
-        <div class="resource-number"><a href="tel:18774AIDVET" style="color:var(--gold);text-decoration:none;">1-877-4AID-VET</a></div>
+        <div class="resource-number"><a href="tel:18774243838" style="color:var(--gold);text-decoration:none;">1-877-4AID-VET</a></div>
         <p>Free, confidential support for veterans experiencing or at risk of homelessness. Open 24/7.</p>
       </div>
       <div class="resource-card">
@@ -239,7 +246,7 @@
       </ul></div>
       <div class="footer-col"><h4>Crisis Help</h4><ul>
         <li><a href="tel:988">Veterans Crisis Line: 988→1</a></li>
-        <li><a href="tel:18774AIDVET">Homeless Vets: 1-877-4AID-VET</a></li>
+        <li><a href="tel:18774243838">Homeless Vets: 1-877-4AID-VET</a></li>
         <li><a href="get-help.html">All Resources</a></li>
       </ul></div>
       <div class="footer-col"><h4>Contact Us</h4>
@@ -253,21 +260,5 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-function handleHelpForm(e) {
-  e.preventDefault();
-  const f = e.target;
-  const firstName = f.first_name.value;
-  const lastName  = f.last_name.value;
-  const phone     = f.phone.value;
-  const email     = f.email.value;
-  const need      = f.need.value;
-  const message   = f.message.value;
-  const body = encodeURIComponent(
-    `Name: ${firstName} ${lastName}\nPhone: ${phone || 'Not provided'}\nEmail: ${email}\n\nHelp needed: ${need}\n\n${message}`
-  );
-  window.location.href = `mailto:unsungheroesofamericainc@gmail.com?subject=${encodeURIComponent('Request for Help – ' + need)}&body=${body}`;
-}
-</script>
 </body>
 </html>
