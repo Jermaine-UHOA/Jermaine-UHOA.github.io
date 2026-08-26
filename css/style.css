@@ -291,6 +291,18 @@ a:hover{color:var(--navy);}
   .form-group input,.form-group select,.form-group textarea{font-size:16px;}
 }
 
+/* --- Give-by-mail details ----------------------------------------------- */
+.give-details{display:grid;grid-template-columns:auto 1fr;gap:9px 20px;margin:0 0 1.1rem;font-size:.95rem;}
+.give-details dt{font-weight:700;color:var(--navy);white-space:nowrap;}
+.give-details dd{margin:0;color:var(--text);}
+.give-details address{font-style:normal;line-height:1.5;}
+@media (max-width:560px){
+  .give-details{grid-template-columns:1fr;gap:0;}
+  .give-details dt{margin-top:10px;}
+  .give-details dt:first-child{margin-top:0;}
+}
+.give-divider{border:0;border-top:1px solid var(--border);margin:1.2rem 0;}
+
 /* --- CTA strip ---------------------------------------------------------- */
 .cta-strip{
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 55%,var(--navy-light) 100%);
