@@ -85,7 +85,7 @@ a:hover{color:var(--navy);}
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:12px;padding-bottom:12px;}
 .nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);flex-shrink:0;}
-.nav-logo-mark img{width:46px;height:46px;object-fit:contain;}
+.nav-logo-mark img{width:68px;height:68px;object-fit:contain;}
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.12;}
 .nav-logo-text strong{font-size:1.04rem;font-weight:800;letter-spacing:-.02em;}
 .nav-logo-text span{font-size:.76rem;color:var(--text-light);letter-spacing:.09em;text-transform:uppercase;}
@@ -337,7 +337,7 @@ a:hover{color:var(--navy);}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 
 .footer-logo{display:flex;align-items:center;gap:11px;margin-bottom:16px;}
-.footer-logo .logo-mark img{width:46px;height:46px;object-fit:contain;}
+.footer-logo .logo-mark img{width:68px;height:68px;object-fit:contain;}
 .footer-logo .logo-name{font-size:1.03rem;font-weight:800;color:var(--white);line-height:1.25;letter-spacing:-.02em;}
 .footer-brand p{font-size:.9rem;line-height:1.6;}
 .ein{font-size:.8rem;color:rgba(255,255,255,.55);}
