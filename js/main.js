@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  var ORG_EMAIL = 'unsungheroesofamericainc@gmail.com';
+  var ORG_EMAIL = 'info@unsungheroesofamerica.org';
 
   /* --- Mobile navigation ------------------------------------------------ */
   function initNav() {
