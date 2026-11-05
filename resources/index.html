@@ -1,0 +1,178 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRTKPJ48LP"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XRTKPJ48LP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veterans Resources Hub | Unsung Heroes of America</title>
+<meta name="description" content="A curated hub of federal, state, and local resources for veterans and their families — benefits and claims, healthcare, employment and business, housing, and more. Published weekly by Unsung Heroes of America.">
+<meta property="og:site_name" content="Unsung Heroes of America">
+<meta property="og:title" content="Veterans Resources Hub | Unsung Heroes of America">
+<meta property="og:description" content="A curated hub of federal, state, and local resources for veterans and their families — benefits and claims, healthcare, employment and business, housing, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.unsungheroesofamerica.org/resources/">
+<meta property="og:image" content="https://www.unsungheroesofamerica.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Unsung Heroes of America - Veterans Resources Hub">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Veterans Resources Hub | Unsung Heroes of America">
+<meta name="twitter:description" content="A curated hub of federal, state, and local resources for veterans and their families.">
+<meta name="twitter:image" content="https://www.unsungheroesofamerica.org/og-image.png">
+<link rel="canonical" href="https://www.unsungheroesofamerica.org/resources/">
+<link rel="icon" type="image/png" href="/logo_nav.png">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.resource-card{background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:24px;margin-bottom:16px;transition:box-shadow .2s;}
+.resource-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.resource-card h3{margin:0 0 .5rem 0;font-size:1.15rem;}
+.resource-card h3 a{color:var(--navy);text-decoration:none;}
+.resource-card h3 a:hover{text-decoration:underline;}
+.resource-card .meta{color:#888;font-size:.9rem;margin:0;}
+.resource-card .source{color:var(--text-light);font-size:.95rem;margin:.5rem 0 0 0;}
+.category-section{margin-bottom:48px;}
+.category-section h2{color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:.5rem;margin-bottom:1.5rem;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- NAVIGATION -->
+<header class="site-header">
+<nav class="container nav-inner" aria-label="Main navigation">
+<a href="/index.html" class="nav-logo" aria-label="Unsung Heroes of America home">
+<div class="nav-logo-mark"><img src="/logo_nav.png" alt="UHOA Logo"></div>
+<div class="nav-logo-text">
+<strong>Unsung Heroes</strong>
+<span>of America, Inc.</span>
+</div>
+</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links">
+<li><a href="/index.html">Home</a></li>
+<li><a href="/about.html">About</a></li>
+<li><a href="/programs.html">Programs</a></li>
+<li><a href="/impact.html">Impact</a></li>
+<li><a href="/get-help.html">Get Help</a></li>
+<li><a href="/volunteer.html">Volunteer</a></li>
+<li><a href="/contact.html">Contact</a></li>
+<li class="nav-donate"><a href="/donate.html">Donate</a></li>
+</ul>
+</nav>
+</header>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+<div class="container">
+<span class="section-label">Veterans Resources</span>
+<h1>Veterans Resources Hub</h1>
+<p>Curated federal, state, and local resources for veterans and their families — updated weekly. All content is republished from public U.S. Government sources with plain-language context. Unsung Heroes of America is not affiliated with the U.S. Department of Veterans Affairs or any other federal agency.</p>
+<div class="gold-bar"></div>
+</div>
+</section>
+
+<!-- RESOURCE LISTING -->
+<section class="section">
+<div class="container">
+{% assign resources = site.pages | where: "layout", "resource" | sort: "date" | reverse %}
+{% assign categories = resources | map: "category" | compact | uniq | sort %}
+{% if resources.size == 0 %}
+<p style="text-align:center;color:var(--text-light);">No resources published yet. Check back soon.</p>
+{% else %}
+{% for cat in categories %}
+<div class="category-section">
+<h2>{{ cat }}</h2>
+{% for p in resources %}
+{% if p.category == cat %}
+<div class="resource-card">
+<h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+<p class="meta"><strong>Published:</strong> {{ p.date | date: "%B %-d, %Y" }}</p>
+{% if p.source %}<p class="source"><strong>Source:</strong> {{ p.source }}</p>{% endif %}
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+<div class="container">
+<h2>Need Direct Help?</h2>
+<p>If you are a veteran experiencing homelessness or at risk, UHOA can help you connect to housing, benefits, and support services.</p>
+<div class="btn-group">
+<a href="/get-help.html" class="btn btn-primary">Get Help</a>
+<a href="/contact.html" class="btn btn-outline">Contact UHOA</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="footer-logo">
+<div class="logo-mark"><img src="/logo_footer.png" alt="UHOA Logo"></div>
+<div class="logo-name">Unsung Heroes of America, Inc.</div>
+</div>
+<p>Empowering homeless veterans on their journey to stability and success through comprehensive support services in the Atlanta area.</p>
+<p class="ein">EIN: 47-3982494 &middot; 501(c)(3) Public Charity</p>
+</div>
+<div class="footer-col">
+<h3>Navigate</h3>
+<ul>
+<li><a href="/index.html">Home</a></li>
+<li><a href="/about.html">About Us</a></li>
+<li><a href="/programs.html">Programs &amp; Services</a></li>
+<li><a href="/housing-project.html">Housing Project</a></li>
+<li><a href="/impact.html">Impact &amp; Transparency</a></li>
+<li><a href="/get-help.html">Get Help</a></li>
+<li><a href="/volunteer.html">Volunteer</a></li>
+<li><a href="/donate.html">Donate</a></li>
+<li><a href="/contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Resources</h3>
+<ul>
+<li><a href="/resources/">Veterans Resources Hub</a></li>
+<li><a href="/get-help.html">Get Help</a></li>
+<li><a href="/programs.html">All Programs</a></li>
+<li><a href="/donate.html">Ways to Give</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h3>Contact Us</h3>
+<div class="footer-contact-item"><span class="icon">📞</span><a href="tel:+14045851499">(404) 585-1499</a></div>
+<div class="footer-contact-item"><span class="icon">✉️</span><a href="mailto:info@unsungheroesofamerica.org">info@unsungheroesofamerica.org</a></div>
+<div class="footer-contact-item"><span class="icon">📍</span><span>3133 Maple Dr., Ste 240 PMB2020, Atlanta, GA 30305</span></div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Unsung Heroes of America. All rights reserved. | <a href="/privacy.html" style="color:inherit;">Privacy Policy</a></p>
+</div>
+</div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>
