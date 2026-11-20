@@ -50,6 +50,27 @@
     });
   }
 
+  /* --- Conversion tracking (Google Analytics events used by Google Ad Grants) --- */
+  function track(name, params) {
+    if (typeof window.gtag === "function") {
+      params = params || {};
+      params.transport_type = "beacon";
+      window.gtag("event", name, params);
+    }
+  }
+
+  var FORM_EVENTS = {
+    "help-form": "get_help_form_submit",
+    "volunteer-form": "volunteer_form_submit",
+    "contact-form": "contact_form_submit"
+  };
+
+  // Any tap on a phone link counts as a call conversion.
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest("a[href^=\"tel:\"]") : null;
+    if (a) { track("phone_call_tap", { link_url: a.getAttribute("href") }); }
+  });
+
   /* --- Forms ------------------------------------------------------------ */
   // Each form carries a real action/method in the markup, so submissions still
   // reach Formspree if this script fails to load. When it does load we post via
@@ -86,6 +107,7 @@
         }).then(function (res) {
           if (!res.ok) throw new Error('HTTP ' + res.status);
           form.hidden = true;
+          if (FORM_EVENTS[form.id]) { track(FORM_EVENTS[form.id], { form_id: form.id }); }
           showStatus(status, 'success',
             form.getAttribute('data-success-title'),
             form.getAttribute('data-success-body'));
