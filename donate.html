@@ -30,8 +30,53 @@
   <link rel="canonical" href="https://www.unsungheroesofamerica.org/donate.html">
   <link rel="icon" type="image/png" href="logo_nav.png">
   <link rel="stylesheet" href="css/style.css">
+<style>
+/* Page-specific styles for the Heroes Circle giving ladder.
+Uses the site's own tokens from css/style.css. */
+.tier-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+@media (max-width:1060px){.tier-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:720px){.tier-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:460px){.tier-grid{grid-template-columns:1fr;}}
+.tier{
+--tier:#a8693a;
+display:flex;flex-direction:column;align-items:center;text-align:center;
+background:var(--white);border:1px solid var(--border);border-top:6px solid var(--tier);
+border-radius:var(--radius);padding:24px 16px 22px;box-shadow:var(--shadow);
+}
+.tier-bronze{--tier:#a8693a;}
+.tier-silver{--tier:#8d97a6;}
+.tier-gold{--tier:#c8973f;}
+.tier-platinum{--tier:#5e6e86;}
+.tier-titanium{--tier:#2f3447;}
+.tier-badge{width:64px;height:76px;color:var(--tier);margin-bottom:12px;}
+.tier h3{color:var(--navy);margin-bottom:2px;font-size:1.3rem;}
+.tier-range{color:var(--text-light);font-size:.88rem;margin-bottom:14px;}
+.tier-monthly{font-size:2.1rem;font-weight:800;color:var(--navy);line-height:1.1;margin:0;}
+.tier-monthly small{display:block;font-size:.88rem;font-weight:600;color:var(--text-light);margin-top:2px;}
+.tier-adds{flex:1;margin:14px 0 18px;font-size:.88rem;color:var(--text-light);}
+.tier .btn{width:100%;}
+.tier-once{margin-top:12px;font-size:.88rem;font-weight:600;}
+.circle-note{max-width:720px;margin:28px auto 0;text-align:center;font-size:.9rem;color:var(--text-light);}
+.tribute-box{
+background:var(--white);border:1px solid var(--border);border-left:5px solid var(--gold);
+border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow);
+}
+.tribute-box h3{color:var(--navy);}
+.tribute-box ol{margin:0 0 1.2rem;padding-left:1.25rem;color:var(--text-light);}
+.tribute-box li{margin-bottom:.4rem;}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media (max-width:760px){.impact-grid{grid-template-columns:repeat(2,1fr);}}
+.impact-grid .impact-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);}
+.merch-callout{margin-top:26px;}
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="shield" viewBox="0 0 64 76">
+<path d="M32 3 59 13v25c0 17-12 29-27 35C17 67 5 55 5 38V13z" fill="currentColor"/>
+<polygon points="32,19 36.4,30.9 49.1,31.4 39.1,39.3 42.6,51.6 32,44.5 21.4,51.6 24.9,39.3 14.9,31.4 27.6,30.9" fill="#ffffff"/>
+</symbol>
+</svg>
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- NAVIGATION -->
@@ -63,216 +108,219 @@
 
 <main id="main">
 
-<!-- PAGE HERO -->
+<!-- Hero -->
 <section class="page-hero">
-  <div class="container">
-    <span class="section-label">Support Our Veterans</span>
-    <h1>Make a Donation</h1>
-    <p>Your generosity directly fuels the programs that help homeless veterans in Atlanta find stability, employment, and a place to call home.</p>
-    <div class="gold-bar"></div>
-  </div>
+<div class="container">
+<h1>Stand with the veterans who stood for us</h1>
+<p>Your gift helps homeless veterans in metro Atlanta find stable housing and support. Give once today, or join the Heroes Circle with a monthly gift.</p>
+<div class="gold-bar"></div>
+<div class="btn-group" style="margin-top:30px;">
+<a class="btn btn-primary" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="one_time" rel="noopener">Give once</a>
+<a class="btn btn-outline" href="#heroes-circle">Join the Heroes Circle</a>
+</div>
+</div>
 </section>
 
-<!-- DONATE MAIN -->
-<section class="section">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="section-label">How to Give</span>
-        <h2 style="color:var(--navy);margin-bottom:1rem;">Donate Today</h2>
-        <p style="color:var(--text-light);font-size:1.05rem;margin-bottom:1.5rem;">
-          Give securely online in under a minute. Our donation form is processed by PayPal — you can give with a credit or debit card, or from your PayPal balance. No PayPal account is required to donate by card.
-        </p>
-        <p style="color:var(--text-light);font-size:1.05rem;margin-bottom:2rem;">
-          All donations to Unsung Heroes of America are <strong>tax-deductible</strong> to the extent permitted by law. UHOA is a 501(c)(3) public charity (EIN: 47-3982494). A donation acknowledgment letter will be provided upon request.
-        </p>
-        
-<div style="background:#faf7f0;border:1px solid #e8d9a4;border-left:4px solid #D9A521;padding:18px 20px;margin-bottom:1.5rem;border-radius:6px;">
-<p style="margin:0 0 10px 0;color:var(--navy);font-weight:700;font-size:1rem;">🔥 Prefer merch? Wear the mission.</p>
-<p style="margin:0 0 14px 0;color:var(--text-light);font-size:.95rem;">Our Veterans Month Edition tees come in three limited designs, and only 100 of each item will ever be made. Get yours now. Proceeds go straight to UHOA’s work housing homeless veterans.</p>
-<a href="/links/" class="btn btn-navy" style="font-size:.95rem;padding:.7rem 1.4rem;">Shop the collection →</a>
+<!-- Heroes Circle -->
+<section class="section" id="heroes-circle" aria-labelledby="circle-title">
+<div class="container">
+<div class="section-header">
+<h2 id="circle-title">The Heroes Circle</h2>
+<p>Give a little each month and become part of the steady support that keeps UHOA working for veterans. Your level reflects what you give in a calendar year, so every gift moves you toward the next one.</p>
 </div>
 
-        <!-- Donation form is hosted on the WordPress site (GiveWP + PayPal) at
-             give.unsungheroesofamerica.org, kept on its own subdomain so it
-             survives the apex/www cutover to GitHub Pages. Link straight at the
-             form (give_forms post "donation-form"); /donations/ is only the
-             archive listing, which costs the donor an extra click. -->
-        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:2rem;">
-          <a href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" class="btn btn-primary" style="font-size:1.1rem;padding:1rem 2rem;text-align:center;">
-            💛 Donate Securely Online
-          </a>
-          <p style="font-size:.82rem;color:var(--text-light);text-align:center;margin:-6px 0 6px;">
-            Secure payment processed by PayPal · Credit &amp; debit cards accepted
-          </p>
-          <a href="#give-by-mail" class="btn btn-outline-navy" style="font-size:1rem;padding:.8rem 2rem;text-align:center;">
-            📬 Donate by Check or Transfer
-          </a>
-          <a href="tel:+14705100392" class="btn btn-outline-navy" style="font-size:1rem;padding:.8rem 2rem;text-align:center;">
-            📞 Call Us: (470) 510-0392
-          </a>
-        </div>
+<div class="callout callout-info" id="monthly-note" hidden role="status">
+<span class="callout-icon" aria-hidden="true">📬</span>
+<p><strong>Online monthly sign-up is opening soon.</strong> Until then, choose a level and we will email you to set up your monthly gift. You can also <a href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="one_time" rel="noopener">give once</a> right now.</p>
+</div>
 
-        <!-- Check/transfer details are shown inline rather than behind a
-             mailto: link, which opened an empty draft (or nothing at all on
-             phones with no mail app) instead of answering the question. -->
-        <div id="give-by-mail" class="card card-navy" style="padding:30px 28px;margin-bottom:2rem;scroll-margin-top:90px;">
-          <h3 style="color:var(--navy);margin-bottom:.6rem;">📬 Donate by Check</h3>
-          <p style="color:var(--text-light);font-size:.92rem;margin-bottom:1.2rem;">
-            Make your check payable to Unsung Heroes of America and mail it to the address below.
-          </p>
-          <dl class="give-details">
-            <dt>Payable to</dt>
-            <dd>Unsung Heroes of America</dd>
-            <dt>Mail to</dt>
-            <dd><address>Unsung Heroes Of America, Inc.<br>3133 Maple Dr.<br>Ste 240 PMB2020<br>Atlanta, GA 30305<br>United States</address></dd>
-            <dt>EIN</dt>
-            <dd>47-3982494</dd>
-          </dl>
-          <p style="color:var(--text-light);font-size:.88rem;margin-bottom:0;">
-            Please include your return address so we can mail your tax-deductible
-            acknowledgment letter. If your gift is for a specific program, note it
-            on the memo line and we'll direct it there.
-          </p>
+<div class="tier-grid" style="margin-top:28px;">
 
-          <hr class="give-divider">
+<article class="tier tier-bronze">
+<svg class="tier-badge" aria-hidden="true" focusable="false"><use href="#shield"/></svg>
+<h3>Bronze</h3>
+<p class="tier-range">$50 to $199 a year</p>
+<p class="tier-monthly">$10<small>a month</small></p>
+<p class="tier-adds">Digital badge and certificate</p>
+<a class="btn btn-primary" data-plan="bronze" data-tier="bronze" data-cadence="monthly"
+href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift%3A%20Bronze%20(%2410%20a%20month)&amp;body=Hello%20UHOA%2C%0A%0AI%20would%20like%20to%20set%20up%20a%20monthly%20gift%20of%20%2410%20(Bronze%20level).%0A%0AName%3A%0APhone%3A">Start $10 monthly</a>
+<a class="tier-once" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="bronze" rel="noopener">or give $50 once</a>
+</article>
 
-          <h3 style="color:var(--navy);margin-bottom:.6rem;">🏦 Bank or Wire Transfer</h3>
-          <p style="color:var(--text-light);font-size:.92rem;margin-bottom:0;">
-            We accept ACH and wire transfers. Contact us at
-            <a href="mailto:info@unsungheroesofamerica.org">info@unsungheroesofamerica.org</a>
-            or <a href="tel:+14705100392">(470) 510-0392</a> and we'll send our account
-            details directly. For your protection and ours, we don't publish bank
-            account numbers on this page.
-          </p>
-        </div>
+<article class="tier tier-silver">
+<svg class="tier-badge" aria-hidden="true" focusable="false"><use href="#shield"/></svg>
+<h3>Silver</h3>
+<p class="tier-range">$200 to $499 a year</p>
+<p class="tier-monthly">$25<small>a month</small></p>
+<p class="tier-adds">Everything in Bronze, plus your name on our recognition wall if you choose</p>
+<a class="btn btn-primary" data-plan="silver" data-tier="silver" data-cadence="monthly"
+href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift%3A%20Silver%20(%2425%20a%20month)&amp;body=Hello%20UHOA%2C%0A%0AI%20would%20like%20to%20set%20up%20a%20monthly%20gift%20of%20%2425%20(Silver%20level).%0A%0AName%3A%0APhone%3A">Start $25 monthly</a>
+<a class="tier-once" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="silver" rel="noopener">or give $200 once</a>
+</article>
 
-        <div class="callout callout-info">
-          <div class="callout-icon">💡</div>
-          <div><p><strong>Prefer another way to give?</strong> We also accept in-kind donations and employer matching gifts, and we can help you set up a recurring gift. <a href="contact.html">Contact us</a> and we'll connect you with the best giving option for your situation.</p></div>
-        </div>
-      </div>
+<article class="tier tier-gold">
+<svg class="tier-badge" aria-hidden="true" focusable="false"><use href="#shield"/></svg>
+<h3>Gold</h3>
+<p class="tier-range">$500 to $999 a year</p>
+<p class="tier-monthly">$50<small>a month</small></p>
+<p class="tier-adds">Everything in Silver, plus a quarterly impact update from our founder</p>
+<a class="btn btn-primary" data-plan="gold" data-tier="gold" data-cadence="monthly"
+href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift%3A%20Gold%20(%2450%20a%20month)&amp;body=Hello%20UHOA%2C%0A%0AI%20would%20like%20to%20set%20up%20a%20monthly%20gift%20of%20%2450%20(Gold%20level).%0A%0AName%3A%0APhone%3A">Start $50 monthly</a>
+<a class="tier-once" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="gold" rel="noopener">or give $500 once</a>
+</article>
 
-      <!-- IMPACT -->
-      <div>
-        <div class="card" style="border-top:4px solid var(--gold);padding:36px 32px;margin-bottom:20px;">
-          <h3 style="color:var(--navy);margin-bottom:1rem;">🎯 Your Impact</h3>
-          <p style="color:var(--text-light);font-size:.9rem;margin-bottom:20px;">Every dollar goes directly to programs and services for veterans in need. Here's a snapshot of what your gift can accomplish:</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <div class="impact-item" style="background:var(--blue-pale);border-radius:8px;">
-              <div class="impact-amount">$25</div>
-              <div class="impact-desc">Supplies for a life skills workshop session</div>
-            </div>
-            <div class="impact-item" style="background:var(--blue-pale);border-radius:8px;">
-              <div class="impact-amount">$50</div>
-              <div class="impact-desc">Food and clothing for one veteran family</div>
-            </div>
-            <div class="impact-item" style="background:var(--blue-pale);border-radius:8px;">
-              <div class="impact-amount">$100</div>
-              <div class="impact-desc">VA benefits advocacy for one veteran</div>
-            </div>
-            <div class="impact-item" style="background:var(--blue-pale);border-radius:8px;">
-              <div class="impact-amount">$250</div>
-              <div class="impact-desc">A month of job training support</div>
-            </div>
-          </div>
-        </div>
+<article class="tier tier-platinum">
+<svg class="tier-badge" aria-hidden="true" focusable="false"><use href="#shield"/></svg>
+<h3>Platinum</h3>
+<p class="tier-range">$1,000 to $2,499 a year</p>
+<p class="tier-monthly">$100<small>a month</small></p>
+<p class="tier-adds">Everything in Gold, plus a personal thank-you call or note from Jermaine Bullard Sr.</p>
+<a class="btn btn-primary" data-plan="platinum" data-tier="platinum" data-cadence="monthly"
+href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift%3A%20Platinum%20(%24100%20a%20month)&amp;body=Hello%20UHOA%2C%0A%0AI%20would%20like%20to%20set%20up%20a%20monthly%20gift%20of%20%24100%20(Platinum%20level).%0A%0AName%3A%0APhone%3A">Start $100 monthly</a>
+<a class="tier-once" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="platinum" rel="noopener">or give $1,000 once</a>
+</article>
 
-        <div class="card card-navy">
-          <h3 class="h-compact" style="color:var(--navy);margin-bottom:.75rem;">🏛️ Tax Deductibility</h3>
-          <p style="color:var(--text-light);font-size:.9rem;margin-bottom:.75rem;">UHOA is a federally recognized 501(c)(3) public charity. Contributions are deductible for federal income tax purposes under IRC Section 170.</p>
-          <p style="color:var(--text-light);font-size:.9rem;margin:0;"><strong>EIN:</strong> 47-3982494<br>
-          Please retain your donation receipt for tax purposes. Contact us for a written acknowledgment.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<article class="tier tier-titanium">
+<svg class="tier-badge" aria-hidden="true" focusable="false"><use href="#shield"/></svg>
+<h3>Titanium</h3>
+<p class="tier-range">$2,500 and up a year</p>
+<p class="tier-monthly">$250<small>a month</small></p>
+<p class="tier-adds">Everything in Platinum, plus an annual impact briefing with our founder</p>
+<a class="btn btn-primary" data-plan="titanium" data-tier="titanium" data-cadence="monthly"
+href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift%3A%20Titanium%20(%24250%20a%20month)&amp;body=Hello%20UHOA%2C%0A%0AI%20would%20like%20to%20set%20up%20a%20monthly%20gift%20of%20%24250%20(Titanium%20level).%0A%0AName%3A%0APhone%3A">Start $250 monthly</a>
+<a class="tier-once" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="titanium" rel="noopener">or give $2,500 once</a>
+</article>
+
+</div>
+
+<p class="circle-note">Want to give a different amount each month? Choose the closest level and tell us the amount, or <a href="mailto:info@unsungheroesofamerica.org?subject=Monthly%20gift">email us</a> and we will set it up.</p>
+
+<div class="callout" style="max-width:720px;margin:20px auto 0;">
+<span class="callout-icon" aria-hidden="true">🏛️</span>
+<p>Heroes Circle recognition is symbolic. No goods or services are provided in exchange for a gift. Gifts are tax-deductible to the extent permitted by law (IRC Section 170). Unsung Heroes of America is a 501(c)(3) public charity, EIN 47-3982494.</p>
+</div>
+</div>
 </section>
 
-<!-- OTHER WAYS TO GIVE -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">More Ways to Give</span>
-      <h2>Other Ways to Support UHOA</h2>
-      <p>Financial gifts are one part of how the community supports our veterans. Here are other meaningful ways to contribute.</p>
-    </div>
-    <div class="card-grid card-grid-3">
-      <div class="card card-gold">
-        <div class="card-icon">👔</div>
-        <h3>In-Kind Donations</h3>
-        <p>Donate clothing (especially professional attire and warm weather gear), non-perishable food, hygiene products, and household items. Contact us to arrange a drop-off or pickup.</p>
-      </div>
-      <div class="card card-gold">
-        <div class="card-icon">🏢</div>
-        <h3>Corporate Giving</h3>
-        <p>Businesses can partner with UHOA through corporate donations, employee giving campaigns, matching gift programs, or event sponsorships. We'll recognize your contribution publicly if you'd like.</p>
-      </div>
-      <div class="card card-gold">
-        <div class="card-icon">📣</div>
-        <h3>Spread the Word</h3>
-        <p>Share UHOA with your network. Follow us on <a href="https://www.instagram.com/UnsungHeroes.OfAmerica" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.facebook.com/profile.php?id=61594372469306" target="_blank" rel="noopener">Facebook</a>, <a href="https://www.linkedin.com/company/uhoa-unsung-heroes" target="_blank" rel="noopener">LinkedIn</a>, and <a href="https://x.com/UHOA_Vets" target="_blank" rel="noopener">X</a>, and <a href="https://www.youtube.com/@UnsungHeroesofAmericaInc" target="_blank" rel="noopener">YouTube</a>, and tell your community about the work we do for veterans in Atlanta.</p>
-      </div>
-      <div class="card card-gold">
-        <div class="card-icon">📅</div>
-        <h3>Event Sponsorship</h3>
-        <p>Sponsor one of our food drives, community events, or fundraising campaigns. Event sponsorships directly fund veteran services and put your brand in front of a caring community.</p>
-      </div>
-      <div class="card card-gold">
-        <div class="card-icon">🎓</div>
-        <h3>Grant &amp; Foundation Funding</h3>
-        <p>If you represent a foundation or grant-making organization, we welcome conversations about programmatic funding. Contact us to learn about our current priorities and data on veteran need in the Atlanta area.</p>
-      </div>
-      <div class="card card-gold">
-        <div class="card-icon">⏰</div>
-        <h3>Volunteer Your Time</h3>
-        <p>Time is one of the most valuable gifts you can give. If donating money isn't possible right now, consider donating your hours. <a href="volunteer.html">Learn about volunteer opportunities →</a></p>
-      </div>
-    </div>
-  </div>
+<!-- What donors receive -->
+<section class="section section-alt" aria-labelledby="receive-title">
+<div class="container">
+<div class="section-header">
+<h2 id="receive-title">What you receive</h2>
+<p>Every Heroes Circle donor gets recognition that says what you did, and a clear record for your taxes.</p>
+</div>
+<div class="card-grid card-grid-3">
+<div class="card card-gold">
+<h3>A badge for your level</h3>
+<p>We email you a digital badge in your tier color after your first gift. Share it, and others may join you.</p>
+</div>
+<div class="card card-gold">
+<h3>A certificate and a thank-you</h3>
+<p>You get a personal welcome from UHOA and a certificate that names your level.</p>
+</div>
+<div class="card card-gold">
+<h3>A yearly giving statement</h3>
+<p>Monthly donors receive one statement each January that totals the year's gifts for your tax records.</p>
+</div>
+</div>
+</div>
 </section>
 
-<!-- WHY GIVE UHOA -->
-<section class="section">
-  <div class="container" style="max-width:800px;text-align:center;">
-    <span class="section-label">Why UHOA</span>
-    <h2 style="color:var(--navy);margin-bottom:1rem;">Your Dollars Work Hard Here</h2>
-    <p style="color:var(--text-light);font-size:1.05rem;margin-bottom:2rem;">
-      UHOA is a lean, volunteer-driven organization. We don't spend your donations on unnecessary overhead. When you give to UHOA, the vast majority goes directly to programs: food, clothing, benefits navigation, job training support, and the time our team spends walking alongside veterans every day.
-    </p>
-    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-      <div style="text-align:center;">
-        <div style="font-size:2rem;font-weight:800;color:var(--gold);">501(c)(3)</div>
-        <div style="font-size:.85rem;color:var(--text-light);">Tax-Exempt Status</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2rem;font-weight:800;color:var(--gold);">100%</div>
-        <div style="font-size:.85rem;color:var(--text-light);">Volunteer Operated</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2rem;font-weight:800;color:var(--gold);">Atlanta</div>
-        <div style="font-size:.85rem;color:var(--text-light);">Locally Focused</div>
-      </div>
-    </div>
-    <a href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" class="btn btn-primary" style="font-size:1.05rem;">💛 Donate Securely Online</a>
-    <p style="font-size:.88rem;color:var(--text-light);margin-top:14px;">
-      Prefer to mail a check? Make it payable to <strong>Unsung Heroes of America</strong>,
-      3133 Maple Dr., Ste 240 PMB2020, Atlanta, GA 30305 · EIN 47-3982494 &mdash;
-      <a href="#give-by-mail">full details above</a>.
-    </p>
-  </div>
+<!-- Tribute giving -->
+<section class="section" id="tribute" aria-labelledby="tribute-title">
+<div class="container">
+<div class="two-col">
+<div>
+<h2 id="tribute-title" style="color:var(--navy);">Give in honor or memory of a veteran</h2>
+<p style="color:var(--text-light);">A tribute gift honors someone who served, or remembers someone you lost, by helping a veteran who needs a home today. We can send a card to you or to the family so they know about the gift.</p>
+</div>
+<div class="tribute-box">
+<h3>How a tribute gift works</h3>
+<ol>
+<li>Make your gift online, by check, or by transfer.</li>
+<li>Email us the honoree's name, whether the gift is in honor or in memory, and where to send a card.</li>
+<li>We send your acknowledgment and the card.</li>
+</ol>
+<a class="btn btn-navy" href="mailto:info@unsungheroesofamerica.org?subject=Tribute%20gift&amp;body=Hello%20UHOA%2C%0A%0AHonoree%20name%3A%0AIn%20honor%20of%20or%20in%20memory%20of%3A%0ASend%20the%20card%20to%20(name%20and%20address)%3A%0AMy%20gift%20amount%3A%0AMy%20name%20and%20email%3A" data-tribute>Email your tribute details</a>
+</div>
+</div>
+</div>
 </section>
 
-<!-- CTA -->
+<!-- Other ways to give -->
+<section class="section section-alt" id="other-ways" aria-labelledby="other-title">
+<div class="container">
+<div class="section-header">
+<h2 id="other-title">Other ways to give</h2>
+<p>Pick the method that fits you. Every one of them supports veterans.</p>
+</div>
+
+<div class="two-col">
+<div class="card card-navy" id="give-by-mail">
+<h3>Give by check</h3>
+<dl class="give-details">
+<dt>Payable to</dt><dd>Unsung Heroes of America</dd>
+<dt>Mail to</dt>
+<dd><address>Unsung Heroes of America, Inc.<br>3133 Maple Dr., Ste 240 PMB2020<br>Atlanta, GA 30305</address></dd>
+<dt>EIN</dt><dd>47-3982494</dd>
+</dl>
+<p>Include your return address so we can mail your acknowledgment. If your gift is for a specific program, note it on the memo line.</p>
+</div>
+<div class="card card-navy">
+<h3>Bank or wire transfer</h3>
+<p>We accept ACH and wire transfers. Email <a href="mailto:info@unsungheroesofamerica.org">info@unsungheroesofamerica.org</a> or call <a href="tel:+14045851499">404-585-1499</a> and we will send our account details directly. For your protection, we do not publish bank account numbers on this page.</p>
+</div>
+</div>
+
+<div class="card-grid card-grid-3" style="margin-top:24px;">
+<div class="card card-gold">
+<h3>Workplace giving and matching</h3>
+<p>Many employers match gifts or run giving campaigns. Check your employer's giving portal, or ask us and we will help you set it up.</p>
+</div>
+<div class="card card-gold">
+<h3>In-kind donations</h3>
+<p>We accept professional attire, warm clothing, non-perishable food, hygiene products and household items. Contact us to arrange a drop-off or pickup.</p>
+</div>
+<div class="card card-gold">
+<h3>Sponsor an event or partner with us</h3>
+<p>Businesses and foundations can sponsor our drives and events or fund programs. Email us to talk about what fits your team.</p>
+</div>
+</div>
+
+<div class="callout callout-info merch-callout">
+<span class="callout-icon" aria-hidden="true">🔥</span>
+<p><strong>Prefer merch?</strong> Our Veterans Month Edition tees come in three limited designs, and only 100 of each item will ever be made. Proceeds support UHOA's work for homeless veterans. <a href="/links/">Shop the collection</a></p>
+</div>
+</div>
+</section>
+
+<!-- Impact examples (wording carried over from the previous page) -->
+<section class="section" aria-labelledby="impact-title">
+<div class="container">
+<div class="section-header">
+<h2 id="impact-title">What your gift can support</h2>
+<p>Examples of the work gifts of these sizes help fund. UHOA is a volunteer-run organization, and your gift goes to the veterans we serve.</p>
+</div>
+<div class="impact-grid">
+<div class="impact-item"><div class="impact-amount">$25</div><div class="impact-desc">Supplies for a life skills workshop session</div></div>
+<div class="impact-item"><div class="impact-amount">$50</div><div class="impact-desc">Food and clothing for one veteran family</div></div>
+<div class="impact-item"><div class="impact-amount">$100</div><div class="impact-desc">VA benefits advocacy for one veteran</div></div>
+<div class="impact-item"><div class="impact-amount">$250</div><div class="impact-desc">A month of job training support</div></div>
+</div>
+</div>
+</section>
+
+<!-- Closing strip -->
 <section class="cta-strip">
-  <div class="container">
-    <h2>Every Dollar Honors a Hero</h2>
-    <p>The veterans we serve gave everything. Your donation helps ensure they receive the support they've earned.</p>
-    <div class="btn-group">
-      <a href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" class="btn btn-primary">Donate Now</a>
-      <a href="volunteer.html" class="btn btn-outline">Give Your Time Instead</a>
-    </div>
-  </div>
+<div class="container">
+<h2>Every gift honors a veteran</h2>
+<p>The veterans we serve gave everything. Help make sure they have a safe place to land.</p>
+<div class="btn-group">
+<a class="btn btn-primary" href="https://www.paypal.com/ncp/payment/QFEEW46C7TG6L" data-donate data-cadence="one_time" data-tier="one_time" rel="noopener">Give once</a>
+<a class="btn btn-outline" href="#heroes-circle">Give monthly</a>
+<a class="btn btn-outline" href="volunteer.html">Give your time</a>
+</div>
+</div>
 </section>
 
 </main>
@@ -350,5 +398,50 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
+<script>
+/* Monthly giving links. Paste each PayPal monthly plan link between the quotes.
+Any level left empty keeps the email fallback and shows the opening-soon note. */
+var PLANS = {
+bronze: "",
+silver: "",
+gold: "",
+platinum: "",
+titanium: ""
+};
+(function () {
+var anyMissing = false;
+var planLinks = document.querySelectorAll('[data-plan]');
+for (var i = 0; i < planLinks.length; i++) {
+var link = planLinks[i];
+var url = PLANS[link.getAttribute('data-plan')];
+if (url) {
+link.setAttribute('href', url);
+link.setAttribute('rel', 'noopener');
+link.setAttribute('data-donate', '');
+} else {
+anyMissing = true;
+}
+}
+var note = document.getElementById('monthly-note');
+if (note && anyMissing) { note.hidden = false; }
+function track(name, params) {
+if (typeof window.gtag === 'function') {
+params.transport_type = 'beacon';
+window.gtag('event', name, params);
+}
+}
+document.addEventListener('click', function (e) {
+var a = e.target.closest ? e.target.closest('a') : null;
+if (!a) { return; }
+if (a.hasAttribute('data-donate')) {
+track('donate_click_out', { tier: a.getAttribute('data-tier') || 'one_time', cadence: a.getAttribute('data-cadence') || 'one_time' });
+} else if (a.hasAttribute('data-plan')) {
+track('monthly_request', { tier: a.getAttribute('data-tier') });
+} else if (a.hasAttribute('data-tribute')) {
+track('tribute_request', {});
+}
+});
+})();
+</script>
 </body>
 </html>
