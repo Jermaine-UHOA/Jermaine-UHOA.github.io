@@ -32,6 +32,22 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<style>
+@keyframes uhoaMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.uhoa-marquee-bar { display:block; background:linear-gradient(90deg,#D9A521 0%,#e8b84a 50%,#D9A521 100%); color:#2A1A4D; text-decoration:none; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; font-weight:700; font-size:.95rem; letter-spacing:.3px; border-bottom:3px solid #2A1A4D; overflow:hidden; white-space:nowrap; }
+.uhoa-marquee-track { display:inline-block; padding:14px 0; animation:uhoaMarquee 36s linear infinite; will-change:transform; }
+.uhoa-marquee-bar:hover .uhoa-marquee-track, .uhoa-marquee-bar:focus-visible .uhoa-marquee-track { animation-play-state:paused; }
+.uhoa-marquee-item { padding:0 60px; }
+@media (prefers-reduced-motion: reduce) { .uhoa-marquee-track { animation: none; padding-left: 20px; } }
+</style>
+<a href="https://www.bonfire.com/store/unsung-heroes-of-america-store/" target="_blank" rel="noopener" class="uhoa-marquee-bar" aria-label="Shop UHOA merchandise on Bonfire — opens in a new tab">
+  <div class="uhoa-marquee-track">
+    <span class="uhoa-marquee-item">🎖️ GET YOUR UHOA GEAR — Rep the Mission. Fund Veteran Housing. 💜 🇺🇸 Tees · Hoodies · Drinkware &amp; More — SHOP NOW →</span>
+    <span class="uhoa-marquee-item">🎖️ GET YOUR UHOA GEAR — Rep the Mission. Fund Veteran Housing. 💜 🇺🇸 Tees · Hoodies · Drinkware &amp; More — SHOP NOW →</span>
+    <span class="uhoa-marquee-item">🎖️ GET YOUR UHOA GEAR — Rep the Mission. Fund Veteran Housing. 💜 🇺🇸 Tees · Hoodies · Drinkware &amp; More — SHOP NOW →</span>
+    <span class="uhoa-marquee-item">🎖️ GET YOUR UHOA GEAR — Rep the Mission. Fund Veteran Housing. 💜 🇺🇸 Tees · Hoodies · Drinkware &amp; More — SHOP NOW →</span>
+  </div>
+</a>
 <a class="skip-link" href="#main">Skip to main content</a>
 <!-- NAVIGATION -->
 <header class="site-header">
@@ -56,6 +72,7 @@
       <li><a href="get-help.html">Get Help</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://www.bonfire.com/store/unsung-heroes-of-america-store/" target="_blank" rel="noopener" style="color:#D9A521;font-weight:700;">Merch</a></li>
       <li class="nav-donate"><a href="donate.html">Donate</a></li>
     </ul>
   </nav>
