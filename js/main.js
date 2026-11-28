@@ -71,6 +71,24 @@
     if (a) { track("phone_call_tap", { link_url: a.getAttribute("href") }); }
   });
 
+  // Outbound donate clicks (PayPal + Bonfire). Both platforms fund UHOA's mission.
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) return;
+    var a = e.target.closest('a[href*="paypal.com"], a[href*="bonfire.com"]');
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    var destination = href.indexOf("paypal") !== -1 ? "paypal" : "bonfire";
+    track("outbound_click_donate", { destination: destination, link_url: href });
+  });
+
+  // Resource PDF downloads from the Veterans Resources Hub and anywhere on site.
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest) return;
+    var a = e.target.closest('a[href$=".pdf"], a[href*=".pdf?"]');
+    if (!a) return;
+    track("resource_pdf_download", { file_url: a.getAttribute("href") });
+  });
+
   /* --- Forms ------------------------------------------------------------ */
   // Each form carries a real action/method in the markup, so submissions still
   // reach Formspree if this script fails to load. When it does load we post via
